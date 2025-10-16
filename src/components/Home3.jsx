@@ -90,8 +90,9 @@ const Home3 = () => {
         { key: "Roses", label: "Roses", icon: "🌹" },
         { key: "Lilies", label: "Lilies", icon: "🌸" },
         { key: "Orchids", label: "Orchids", icon: "🌺" },
-        { key: "Sandwich", label: "Sandwich", icon: "🥪" },
-        { key: "Shakes", label: "Shakes", icon: "🥤" },
+        { key: "Gerbera", label: "Gerbera", icon: "🥪" },
+        { key: "CarnationFLowers", label: "Carnation", icon: "🥤" },
+        { key: "ChocolateBouquet", label: "Chocolate", icon: "🥤" },
     ];
 
     const variants = {
