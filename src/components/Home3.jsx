@@ -20,6 +20,7 @@ const Home3 = () => {
     const [customerData, setCustomerData] = useState({
         name: "",
         phone: "",
+        email: "",
         otp: "",
         address: "",
         city: "",
@@ -167,6 +168,7 @@ const Home3 = () => {
         setCustomerData({
             name: "",
             phone: "",
+            email: "",
             otp: "",
             address: "",
             city: "",
@@ -256,7 +258,7 @@ const Home3 = () => {
                     <h1 className="text-lg font-bold text-black ">Have A Nice Day</h1>
                     <button
                         onClick={() => setShowCart(!showCart)}
-                        className="bg-red-600 px-3 py-2 rounded-full text-sm"
+                        className="bg-[#6a0572] px-3 py-2 rounded-full text-sm"
                     >
                         {showCart ? "Menu 🍽️" : `Cart 🛒 (${cart.length})`}
                     </button>
@@ -267,7 +269,7 @@ const Home3 = () => {
                             key={cat.key}
                             onClick={() => setActiveTab(cat.key)}
                             className={`flex items-center space-x-1 px-4 py-2 rounded-xl text-sm ${activeTab === cat.key
-                                ? "bg-red-600 text-white"
+                                ? "bg-[#6a0572] text-white"
                                 : "bg-[#d3cfcf] text-black"
                                 }`}
                         >
@@ -286,7 +288,7 @@ const Home3 = () => {
                     />
                     <button
                         onClick={() => setCurrentPage(1)}
-                        className="bg-red-600 text-white px-4 py-2 rounded-md text-sm"
+                        className="bg-[#6a0572] text-white px-4 py-2 rounded-md text-sm"
                     >
                         Search
                     </button>
@@ -354,7 +356,7 @@ const Home3 = () => {
                                     {getQty(item.id) === 0 ? (
                                         <button
                                             onClick={() => addToCart(item)}
-                                            className="bg-red-600 text-white px-4 py-1 rounded-md text-sm flex-shrink-0"
+                                            className="bg-[#6a0572] text-white px-4 py-1 rounded-md text-sm flex-shrink-0"
                                         >
                                             Add
                                         </button>
@@ -393,7 +395,7 @@ const Home3 = () => {
                                             <button
                                                 key={p}
                                                 onClick={() => setCurrentPage(p)}
-                                                className={`px-3 py-1 rounded text-sm ${p === currentPage ? "bg-red-600 text-white" : "bg-[#d3cfcf] text-black"}`}
+                                                className={`px-3 py-1 rounded text-sm ${p === currentPage ? "bg-[#6a0572] text-white" : "bg-[#d3cfcf] text-black"}`}
                                             >
                                                 {p}
                                             </button>
@@ -478,7 +480,7 @@ const Home3 = () => {
                                     </p>
                                     <button
                                         onClick={handleCheckout}
-                                        className="bg-red-600 px-5 py-2 rounded-md font-medium"
+                                        className="w-full bg-[#6a0572] px-5 py-2 rounded-md font-medium"
                                     >
                                         Checkout
                                     </button>
@@ -509,6 +511,13 @@ const Home3 = () => {
                                     className="w-full bg-[#d3cfcf] rounded-lg px-4 py-2 text-black"
                                 />
                                 <input
+                                    type="email"
+                                    placeholder="Email"
+                                    value={customerData.email}
+                                    onChange={(e) => setCustomerData({ ...customerData, email: e.target.value })}
+                                    className="w-full bg-[#d3cfcf] rounded-lg px-4 py-2 text-black"
+                                />
+                                <input
                                     type="tel"
                                     placeholder="Phone Number"
                                     value={customerData.phone}
@@ -526,7 +535,7 @@ const Home3 = () => {
                                 <button
                                     onClick={generateOTP}
                                     disabled={!customerData.name || !customerData.phone}
-                                    className="flex-1 bg-red-600 px-4 py-2 rounded-lg disabled:opacity-50"
+                                    className="flex-1 bg-[#6a0572] px-4 py-2 rounded-lg disabled:opacity-50"
                                 >
                                     Send OTP
                                 </button>
@@ -566,7 +575,7 @@ const Home3 = () => {
                                 </button>
                                 <button
                                     onClick={verifyOTP}
-                                    className="flex-1 bg-red-600 px-4 py-2 rounded-lg"
+                                    className="flex-1 bg-[#6a0572] px-4 py-2 rounded-lg"
                                 >
                                     Verify OTP
                                 </button>
@@ -635,7 +644,7 @@ const Home3 = () => {
                         <button
                             onClick={handleCustomerInfoSubmit}
                             disabled={!customerData.address || !customerData.city || !customerData.pincode}
-                            className="w-full bg-red-600 px-4 py-3 rounded-lg font-semibold mt-6 disabled:opacity-50"
+                            className="w-full bg-[#6a0572] px-4 py-3 rounded-lg font-semibold mt-6 disabled:opacity-50"
                         >
                             Continue to Checkout
                         </button>
@@ -682,7 +691,7 @@ const Home3 = () => {
 
                         <button
                             onClick={resetOrder}
-                            className="bg-red-600 px-6 py-3 rounded-lg font-semibold"
+                            className="bg-[#6a0572] px-6 py-3 rounded-lg font-semibold"
                         >
                             Place New Order
                         </button>
